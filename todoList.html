@@ -5,6 +5,9 @@
   </head>
   </head>
   <body>
+    <h1>Todo List!</h1>
+    <button id='displayTodosButton'>Display Todos</button>
+    <button>Toggle all</button>
    <script>
 
      const todoList = {
@@ -70,6 +73,14 @@
          this.displayTodos();
        }
      }
+
+     var getTodosButton = document.getElementById('displayTodosButton')
+     console.log('displayTodosButton')
+
+     displayTodosButton.addEventListener('click', function(){
+       todoList.displayTodos();
+
+     });
    </script>
   </body>
 </html>
