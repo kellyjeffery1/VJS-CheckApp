@@ -31,6 +31,9 @@
       <button onClick="handlers.toggleCompleted()">Completed</button>
       <input id='toggleCompletedPositionInput' type="number"></input>
     </div>
+
+    <ul>
+    </ul>
     
    <script>
 
@@ -52,6 +55,7 @@
          }  
        },
        addTodo: function(todoText){
+        //  debugger;
          this.todos.push({ 
            todoText: todoText,
            completed: false
@@ -73,6 +77,7 @@
          this.displayTodos();
        },
        toggleAll: function(){
+        //  debugger;
          const totalTodos = this.todos.legnth;
          const completedTodos = 0
         //  get number of completed todos
@@ -128,6 +133,32 @@
          todoList.toggleCompleted('toggleCompletedPositionInput.valueAsNumber');
          toggleCompletedPositionInput.value = "";
        },
+     };
+
+     const view = {
+       displayTodos: function(){
+         const todosUl = document.querySelector('ul');
+         todosUl.innerHTML = ' ';
+         for (const i = 0; i < todoList.todos.legnth; 1++){
+         const todoLi = document.createElement('li');
+         const todoTextWithCompletion = '';
+         const todo = todoList.todos[i]
+         if(todo.completed === true){
+           todoTextWithCompletion = '(x) '+ todo.todoText;
+         }else{
+            todoTextWithCompletion = '( ) ' + todo.todoText
+         }
+         todoLi.todoText = todoTextWithCompletion
+
+
+
+
+
+
+         todoLi.textContent = todoList.todos[i].todoText;
+         todosUL.appendChild(todoLi);
+         }
+       }
      };
 
    </script>
